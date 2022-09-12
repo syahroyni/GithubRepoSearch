@@ -119,6 +119,13 @@
                                                 <constraint firstAttribute="bottom" secondItem="a11-1H-THS" secondAttribute="bottom" constant="4" id="uga-MM-Xgd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="8Tg-D5-jgn" id="p04-Lk-AfY"/>
+                                            <outlet property="lastUpdatedLabel" destination="cQf-uc-fhQ" id="z66-3t-eGp"/>
+                                            <outlet property="repositoryNameLabel" destination="vV8-JC-v7m" id="YMr-zP-PvL"/>
+                                            <outlet property="starCountLabel" destination="COZ-4b-6aC" id="cS6-64-sif"/>
+                                            <outlet property="watcherCountLabel" destination="Hf1-Dp-fCY" id="2ks-Ov-faA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

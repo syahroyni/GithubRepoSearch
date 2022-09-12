@@ -9,6 +9,12 @@ import UIKit
 
 class RepositoryTableViewCell: UITableViewCell {
 
+	@IBOutlet weak var repositoryNameLabel: UILabel!
+	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var lastUpdatedLabel: UILabel!
+	@IBOutlet weak var watcherCountLabel: UILabel!
+	@IBOutlet weak var starCountLabel: UILabel!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
