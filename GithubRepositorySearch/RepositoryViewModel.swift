@@ -9,6 +9,9 @@ import Foundation
 
 class RepositoryViewModel: NSObject {
 	
+	public var searchingText: String = ""
+	public var listRepositories: [RepositoryModel] = []
+	
 	private let githubFacade: GithubFacade
 	
 	init(githubFacade: GithubFacade = GithubService()) {
