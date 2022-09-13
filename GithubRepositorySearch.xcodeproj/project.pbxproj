@@ -93,6 +93,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		AE78B7EF28D0265B0077BD28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE78B7EB28D025A90077BD28 /* RepositoryModel.swift */,
+				AE78B7ED28D026120077BD28 /* SearchRepositoryResult.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		AEBF942128CEB6EA00846E69 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				AE78B7D728CF5A6B0077BD28 /* View */,
+				AE78B7EF28D0265B0077BD28 /* Model */,
 				AEBF942D28CEB6EA00846E69 /* AppDelegate.swift */,
 				AEBF942F28CEB6EA00846E69 /* SceneDelegate.swift */,
 				AEBF943328CEB6EA00846E69 /* Main.storyboard */,
@@ -124,8 +134,6 @@
 				AEBF943828CEB6ED00846E69 /* LaunchScreen.storyboard */,
 				AEBF943B28CEB6ED00846E69 /* Info.plist */,
 				AE78B7E928D025300077BD28 /* RESTService.swift */,
-				AE78B7EB28D025A90077BD28 /* RepositoryModel.swift */,
-				AE78B7ED28D026120077BD28 /* SearchRepositoryResult.swift */,
 			);
 			path = GithubRepositorySearch;
 			sourceTree = "<group>";
