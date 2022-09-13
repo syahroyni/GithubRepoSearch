@@ -9,11 +9,11 @@ import Foundation
 
 class RESTService: NSObject {
 	
-	func fetch(url: URL, completion: @escaping ((Data?, Error?) -> Void)) {
+	func fetch(url: URL, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
 		
 		let dataTask = URLSession.shared.dataTask(with: url) { resultData, urlResponse, error in
 			
-			completion(resultData, error)
+			completion(resultData, urlResponse, error)
 		}
 
 		dataTask.resume()
