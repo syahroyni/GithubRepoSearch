@@ -20,6 +20,7 @@ class RepositoryViewController: UIViewController {
 		
 		repositoriesTableView.dataSource = self
 		observeViewModel()
+		searchTextField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
 	}
 	
 	func observeViewModel() {
@@ -28,6 +29,11 @@ class RepositoryViewController: UIViewController {
 				self?.repositoriesTableView.reloadData()
 			}
 		}
+	}
+	
+	@objc func textFieldDidChange(textField: UITextField) {
+			
+		viewModel.searchingText = textField.text ?? ""
 	}
 
 }
