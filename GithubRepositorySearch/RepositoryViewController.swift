@@ -12,6 +12,8 @@ class RepositoryViewController: UIViewController {
 	@IBOutlet weak var searchTextField: UITextField!
 	@IBOutlet weak var repositoriesTableView: UITableView!
 	
+	var viewModel: RepositoryViewModel = RepositoryViewModel()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
