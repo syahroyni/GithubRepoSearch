@@ -59,6 +59,13 @@ class RepositoryViewModel: NSObject {
 			}
 			
 			self.isSearching = false
+			if (!self.searchedText.elementsEqual(self.searchingText)) {
+							
+				self.searchRepository()
+			} else {
+				
+				self.needToReloadData?()
+			}
 		}
 	}
 }
