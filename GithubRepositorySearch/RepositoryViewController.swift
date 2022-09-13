@@ -13,6 +13,7 @@ class RepositoryViewController: UIViewController {
 	@IBOutlet weak var repositoriesTableView: UITableView!
 	
 	var timer: Timer?
+	var isFirstTime = true
 	
 	var viewModel: RepositoryViewModel = RepositoryViewModel()
 	
@@ -42,7 +43,7 @@ class RepositoryViewController: UIViewController {
 	}
 	
 	@objc func textFieldDidChange(textField: UITextField) {
-			
+		isFirstTime = false
 		timer?.invalidate()
 		timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.searchText), userInfo: nil, repeats: false)
 	}
@@ -57,6 +58,18 @@ extension RepositoryViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
+		if viewModel.listRepositories.count == 0 {
+			var message: String = ""
+			if isFirstTime {
+				message = "Looking for Github Repository?"
+			} else {
+				message = "We can't find the Repository"
+			}
+			
+			tableView.setEmptyMessage(message)
+		} else {
+			tableView.restore()
+		}
 		return viewModel.listRepositories.count
 	}
 	
@@ -71,6 +84,25 @@ extension RepositoryViewController: UITableViewDataSource {
 		}
 		
 		return UITableViewCell()
+	}
+}
+extension UITableView {
+
+	func setEmptyMessage(_ message: String) {
+		let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+		messageLabel.text = message
+		messageLabel.textColor = .black
+		messageLabel.numberOfLines = 0
+		messageLabel.textAlignment = .center
+		messageLabel.sizeToFit()
+
+		self.backgroundView = messageLabel
+		self.separatorStyle = .none
+	}
+
+	func restore() {
+		self.backgroundView = nil
+		self.separatorStyle = .singleLine
 	}
 }
 
