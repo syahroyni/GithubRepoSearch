@@ -33,12 +33,28 @@ class GithubService: GithubFacade {
 			return
 		}
 		
-		restService.fetch(url: url, completion: { data, error in
+		restService.fetch(url: url, completion: { data, urlResponse ,error in
 			
 			if let error = error {
 				
 				completion(.failure(error))
 			} else if let data = data {
+				
+				if let urlResponse = urlResponse as? HTTPURLResponse, urlResponse.statusCode == 403 {
+					
+					if let json = try? JSONSerialization.jsonObject(with: data, options: .json5Allowed) as? Dictionary<String, Any>, let message = json["message"] as? String {
+						
+						let limitRateError = ResponseError(errorMessage: message, errorCode: 403)
+						completion(.failure(limitRateError))
+						return
+					} else {
+						
+						let limitRateError = ResponseError(errorMessage: "API rate limit exceeded", errorCode: 403)
+						completion(.failure(limitRateError))
+						return
+					}
+					
+				}
 				
 				let decoder = JSONDecoder()
 				
