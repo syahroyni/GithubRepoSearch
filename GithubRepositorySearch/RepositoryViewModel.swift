@@ -10,7 +10,11 @@ import Foundation
 class RepositoryViewModel: NSObject {
 	
 	public var needToReloadData: (() -> Void)?
-	public var searchingText: String = ""
+	public var searchingText: String = "" {
+		didSet {
+			self.searchRepository()
+		}
+	}
 	public var listRepositories: [RepositoryModel] = []
 	
 	private let githubFacade: GithubFacade
