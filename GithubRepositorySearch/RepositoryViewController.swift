@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RepositoryViewController: UIViewController {
 
 	@IBOutlet weak var searchTextField: UITextField!
 	@IBOutlet weak var repositoriesTableView: UITableView!
