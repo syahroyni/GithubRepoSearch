@@ -49,11 +49,7 @@ class RepositoryViewModel: NSObject {
 			
 			switch(result) {
 			case .success(let searchResult):
-				if searchResult.totalCount > 0 {
-					self.listRepositories = searchResult.items
-				} else {
-					self.listRepositories = []
-				}
+				self.listRepositories = searchResult.items
 				
 			case.failure(let error):
 				if let error = error as? ResponseError {
