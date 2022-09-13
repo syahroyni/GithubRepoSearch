@@ -19,6 +19,15 @@ class RepositoryViewController: UIViewController {
 		// Do any additional setup after loading the view.
 		
 		repositoriesTableView.dataSource = self
+		observeViewModel()
+	}
+	
+	func observeViewModel() {
+		viewModel.needToReloadData = {[weak self] in
+			DispatchQueue.main.async {
+				self?.repositoriesTableView.reloadData()
+			}
+		}
 	}
 
 }
