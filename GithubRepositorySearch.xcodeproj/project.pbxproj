@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE78B7D928CF5A960077BD28 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE78B7D828CF5A960077BD28 /* RepositoryTableViewCell.swift */; };
+		AE78B7EA28D025300077BD28 /* RESTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE78B7E928D025300077BD28 /* RESTService.swift */; };
 		AEBF942E28CEB6EA00846E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF942D28CEB6EA00846E69 /* AppDelegate.swift */; };
 		AEBF943028CEB6EA00846E69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF942F28CEB6EA00846E69 /* SceneDelegate.swift */; };
 		AEBF943228CEB6EA00846E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF943128CEB6EA00846E69 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		AE78B7D828CF5A960077BD28 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		AE78B7E928D025300077BD28 /* RESTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTService.swift; sourceTree = "<group>"; };
 		AEBF942A28CEB6EA00846E69 /* GithubRepositorySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubRepositorySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBF942D28CEB6EA00846E69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEBF942F28CEB6EA00846E69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				AEBF943628CEB6ED00846E69 /* Assets.xcassets */,
 				AEBF943828CEB6ED00846E69 /* LaunchScreen.storyboard */,
 				AEBF943B28CEB6ED00846E69 /* Info.plist */,
+				AE78B7E928D025300077BD28 /* RESTService.swift */,
 			);
 			path = GithubRepositorySearch;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				AEBF942E28CEB6EA00846E69 /* AppDelegate.swift in Sources */,
 				AEBF943028CEB6EA00846E69 /* SceneDelegate.swift in Sources */,
 				AE78B7D928CF5A960077BD28 /* RepositoryTableViewCell.swift in Sources */,
+				AE78B7EA28D025300077BD28 /* RESTService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
