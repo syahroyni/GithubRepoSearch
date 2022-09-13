@@ -46,11 +46,14 @@ class GithubService: GithubFacade {
 						
 						let limitRateError = ResponseError(errorMessage: message, errorCode: 403)
 						completion(.failure(limitRateError))
+						return
+					} else {
+						
+						let limitRateError = ResponseError(errorMessage: "API rate limit exceeded", errorCode: 403)
+						completion(.failure(limitRateError))
+						return
 					}
 					
-					let limitRateError = ResponseError(errorMessage: "API rate limit exceeded", errorCode: 403)
-					completion(.failure(limitRateError))
-					return
 				}
 				
 				let decoder = JSONDecoder()
