@@ -12,6 +12,8 @@ class RepositoryViewController: UIViewController {
 	@IBOutlet weak var searchTextField: UITextField!
 	@IBOutlet weak var repositoriesTableView: UITableView!
 	
+	var timer: Timer?
+	
 	var viewModel: RepositoryViewModel = RepositoryViewModel()
 	
 	override func viewDidLoad() {
@@ -33,7 +35,13 @@ class RepositoryViewController: UIViewController {
 	
 	@objc func textFieldDidChange(textField: UITextField) {
 			
-		viewModel.searchingText = textField.text ?? ""
+		timer?.invalidate()
+		timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.searchText), userInfo: nil, repeats: false)
+	}
+	
+	@objc func searchText() {
+		
+		viewModel.searchingText = searchTextField.text ?? ""
 	}
 
 }
