@@ -9,6 +9,7 @@ import Foundation
 
 class RepositoryViewModel: NSObject {
 	
+	public var needToReloadData: (() -> Void)?
 	public var searchingText: String = ""
 	public var listRepositories: [RepositoryModel] = []
 	
