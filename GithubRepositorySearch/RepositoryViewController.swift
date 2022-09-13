@@ -55,6 +55,11 @@ class RepositoryViewController: UIViewController {
 	}
 	
 	@objc func searchText() {
+		if (searchTextField.text == nil || searchTextField.text == "") {
+			isLoading = false
+			activityIndicator.stopAnimating()
+			return
+		}
 		activityIndicator.startAnimating()
 		isLoading = true
 		repositoriesTableView.reloadData()
