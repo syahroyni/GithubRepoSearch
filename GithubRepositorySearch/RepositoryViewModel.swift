@@ -1,0 +1,18 @@
+//
+//  RepositoryViewModel.swift
+//  GithubRepositorySearch
+//
+//  Created by Muhammad Syah Royni on 13/09/22.
+//
+
+import Foundation
+
+class RepositoryViewModel: NSObject {
+	
+	private let githubFacade: GithubFacade
+	
+	init(githubFacade: GithubFacade = GithubService()) {
+		self.githubFacade = githubFacade
+		super.init()
+	}
+}
