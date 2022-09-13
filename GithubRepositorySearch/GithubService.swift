@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct ResponseError: Error {
+	var errorMessage: String
+	var errorCode: Int
+}
+
 class GithubService: GithubFacade {
 	
 	var restService: RESTService
