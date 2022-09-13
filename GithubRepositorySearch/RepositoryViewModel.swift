@@ -13,6 +13,8 @@ class RepositoryViewModel: NSObject {
 	public var listRepositories: [RepositoryModel] = []
 	
 	private let githubFacade: GithubFacade
+	private var searchedText: String = ""
+	private var isSearching: Bool = false
 	
 	init(githubFacade: GithubFacade = GithubService()) {
 		self.githubFacade = githubFacade
