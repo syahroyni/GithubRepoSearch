@@ -26,6 +26,15 @@ class RepositoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		repositoryNameLabel.text = nil
+		descriptionLabel.text = nil
+		lastUpdatedLabel.text = nil
+		watcherCountLabel.text = nil
+		starCountLabel.text = nil
+	}
+	
 	func setRepositoryModel(repository: RepositoryModel) {
 		repositoryNameLabel.text = repository.fullName
 		descriptionLabel.text = repository.description
