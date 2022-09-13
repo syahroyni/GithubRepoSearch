@@ -95,7 +95,7 @@
 			children = (
 				AEBF943128CEB6EA00846E69 /* RepositoryViewController.swift */,
 				AE78B7D828CF5A960077BD28 /* RepositoryTableViewCell.swift */,
-				AE78B7F628D029280077BD28 /* RepositoryViewModel.swift */,
+				AE78B7F828D05DDE0077BD28 /* ViewModel */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -125,6 +125,14 @@
 				AE78B7F228D026C20077BD28 /* GithubService.swift */,
 			);
 			name = GithubService;
+			sourceTree = "<group>";
+		};
+		AE78B7F828D05DDE0077BD28 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AE78B7F628D029280077BD28 /* RepositoryViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		AEBF942128CEB6EA00846E69 = {
