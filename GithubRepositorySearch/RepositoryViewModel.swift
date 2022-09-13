@@ -10,6 +10,7 @@ import Foundation
 class RepositoryViewModel: NSObject {
 	
 	public var needToReloadData: (() -> Void)?
+	public var onNeedToShowAlert: ((String?, String?) -> Void)?
 	public var searchingText: String = "" {
 		didSet {
 			self.searchRepository()
@@ -56,9 +57,15 @@ class RepositoryViewModel: NSObject {
 				
 			case.failure(let error):
 				if let error = error as? ResponseError {
-					print("Error Code: \(error.errorCode), Message: \(error.errorMessage)")
+					if error.errorCode == 400 {
+						self.onNeedToShowAlert?("Data Invalid", error.errorMessage)
+					} else if error.errorCode == 404 {
+						self.onNeedToShowAlert?("Data Empty", error.errorMessage)
+					} else if error.errorCode == 403 {
+						self.onNeedToShowAlert?("Rate Limit", error.errorMessage)
+					}
 				} else {
-					print(error)
+					self.onNeedToShowAlert?("Error","\(error.localizedDescription)")
 				}
 			}
 			
