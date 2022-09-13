@@ -9,6 +9,14 @@ import Foundation
 
 class GithubService: GithubFacade {
 	
+	var restService: RESTService
+	let baseURL: String = "https://api.github.com/"
+		
+	init(restService: RESTService = RESTService()) {
+		
+		self.restService = restService
+	}
+	
 	func searchRepository(queryString: String, completion: @escaping (Result<SearchRepositoryResult, Error>) -> Void) {
 		
 	}
