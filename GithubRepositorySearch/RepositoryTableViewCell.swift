@@ -25,5 +25,24 @@ class RepositoryTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	
+	func setRepositoryModel(repository: RepositoryModel) {
+		repositoryNameLabel.text = repository.fullName
+		descriptionLabel.text = repository.description
+		lastUpdatedLabel.text = "Last Updated at \(getFormattedDate(dateString: repository.lastUpdate))"
+		watcherCountLabel.text = "\(repository.watchersCount)"
+		starCountLabel.text = "\(repository.starsCount)"
+	}
+	
+	func getFormattedDate(dateString: String) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+		if let date = dateFormatter.date(from: dateString) {
+			let newDateFormatter = DateFormatter()
+			newDateFormatter.dateFormat = "dd MMM yyyy, HH:mm"
+			return newDateFormatter.string(from: date)
+		}
+		return ""
+	}
 
 }
