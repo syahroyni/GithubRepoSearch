@@ -11,9 +11,11 @@ class RepositoryViewController: UIViewController {
 
 	@IBOutlet weak var searchTextField: UITextField!
 	@IBOutlet weak var repositoriesTableView: UITableView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	var timer: Timer?
 	var isFirstTime = true
+	var isLoading = false
 	
 	var viewModel: RepositoryViewModel = RepositoryViewModel()
 	
@@ -29,12 +31,16 @@ class RepositoryViewController: UIViewController {
 	func observeViewModel() {
 		viewModel.needToReloadData = {[weak self] in
 			DispatchQueue.main.async {
+				self?.activityIndicator.stopAnimating()
+				self?.isLoading = false
 				self?.repositoriesTableView.reloadData()
 			}
 		}
 		
 		viewModel.onNeedToShowAlert = {[weak self] title, message in
 			DispatchQueue.main.async {
+				self?.activityIndicator.stopAnimating()
+				self?.isLoading = false
 				let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 				alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 				self?.present(alert, animated: true, completion: nil)
@@ -49,7 +55,9 @@ class RepositoryViewController: UIViewController {
 	}
 	
 	@objc func searchText() {
-		
+		activityIndicator.startAnimating()
+		isLoading = true
+		repositoriesTableView.reloadData()
 		viewModel.searchingText = searchTextField.text ?? ""
 	}
 
@@ -58,6 +66,11 @@ extension RepositoryViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
+		if isLoading {
+
+			tableView.setEmptyMessage("Looking for Github Repository")
+			return 0
+		}
 		if viewModel.listRepositories.count == 0 {
 			var message: String = ""
 			if isFirstTime {
