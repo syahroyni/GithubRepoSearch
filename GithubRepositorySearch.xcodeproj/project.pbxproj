@@ -77,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE239FB928D14843001EAB3F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				AE78B7FB28D079840077BD28 /* MockGithubService.swift */,
+				AE78B7FF28D0C6D40077BD28 /* MockRestService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		AE78B7D728CF5A6B0077BD28 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,10 +168,9 @@
 		AEBF944328CEB6ED00846E69 /* GithubRepositorySearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				AE239FB928D14843001EAB3F /* Mocks */,
 				AE78B7F928D0790E0077BD28 /* RepositoryViewModelTests.swift */,
-				AE78B7FB28D079840077BD28 /* MockGithubService.swift */,
 				AE78B7FD28D0C6A00077BD28 /* GithubServiceTests.swift */,
-				AE78B7FF28D0C6D40077BD28 /* MockRestService.swift */,
 			);
 			path = GithubRepositorySearchTests;
 			sourceTree = "<group>";
