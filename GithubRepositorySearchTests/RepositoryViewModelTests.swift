@@ -11,15 +11,17 @@ import XCTest
 class RepositoryViewModelTests: XCTestCase {
 
 	var viewModel: RepositoryViewModel!
-	var mockGithubService: MockGithubService = MockGithubService()
+	var mockGithubService: MockGithubService!
 	
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+		mockGithubService = MockGithubService()
 		viewModel = RepositoryViewModel(githubFacade: mockGithubService)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+		
     }
 
     func testPerformanceExample() throws {
@@ -78,6 +80,22 @@ class RepositoryViewModelTests: XCTestCase {
 		viewModel.searchingText = ""
 		mockGithubService.getServiceResponse(usecase: .success)
 		XCTAssertEqual(viewModel.listRepositories.count, 0)
+	}
+	
+	func testSearchWhichHasNextPage() {
+		viewModel.searchingText = "dummy"
+		XCTAssertEqual(mockGithubService.savedQuery, "dummy")
+		XCTAssertEqual(mockGithubService.savedPage, 1)
+		
+		mockGithubService.getServiceResponse(usecase: .successHasNextPage)
+		XCTAssertEqual(viewModel.listRepositories.count, 2)
+		
+		viewModel.loadNextPage()
+		XCTAssertEqual(mockGithubService.savedQuery, "dummy")
+		XCTAssertEqual(mockGithubService.savedPage, 2)
+		
+		mockGithubService.getServiceResponse(usecase: .successHasNextPage)
+		XCTAssertEqual(viewModel.listRepositories.count, 4)
 	}
 
 }
