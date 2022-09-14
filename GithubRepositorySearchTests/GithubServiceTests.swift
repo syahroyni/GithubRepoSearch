@@ -41,7 +41,7 @@ class GithubServiceTests: XCTestCase {
 		
 		var searchRepositoryResult: SearchRepositoryResult?
 		
-		githubService.searchRepository(queryString: "dummy") { result in
+		githubService.searchRepository(queryString: "dummy", page: 1) { result in
 			switch(result) {
 			case .success(let successResult):
 				searchRepositoryResult = successResult
@@ -58,7 +58,7 @@ class GithubServiceTests: XCTestCase {
 		
 		var expectedError: ResponseError?
 		
-		githubService.searchRepository(queryString: "dummy") { result in
+		githubService.searchRepository(queryString: "dummy", page: 1) { result in
 			switch(result) {
 			case .failure(let error):
 				expectedError = error as? ResponseError
@@ -77,7 +77,7 @@ class GithubServiceTests: XCTestCase {
 		
 		var expectedError: ResponseError?
 		
-		githubService.searchRepository(queryString: "dummy") { result in
+		githubService.searchRepository(queryString: "dummy", page: 1) { result in
 			switch(result) {
 			case .failure(let error):
 				expectedError = error as? ResponseError
@@ -96,7 +96,7 @@ class GithubServiceTests: XCTestCase {
 		
 		var expectedError: ResponseError?
 		
-		githubService.searchRepository(queryString: "dummy") { result in
+		githubService.searchRepository(queryString: "dummy", page: 1) { result in
 			switch(result) {
 			case .failure(let error):
 				expectedError = error as? ResponseError
@@ -115,7 +115,7 @@ class GithubServiceTests: XCTestCase {
 		
 		var expectedError: ResponseError?
 		
-		githubService.searchRepository(queryString: "dummy") { result in
+		githubService.searchRepository(queryString: "dummy", page: 1) { result in
 			switch(result) {
 			case .failure(let error):
 				expectedError = error as? ResponseError
@@ -134,7 +134,7 @@ class GithubServiceTests: XCTestCase {
 		
 		var expectedError: ResponseError?
 		
-		githubService.searchRepository(queryString: "dummy") { result in
+		githubService.searchRepository(queryString: "dummy", page: 1) { result in
 			switch(result) {
 			case .failure(let error):
 				expectedError = error as? ResponseError
