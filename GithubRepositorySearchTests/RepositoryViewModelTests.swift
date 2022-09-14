@@ -38,8 +38,7 @@ class RepositoryViewModelTests: XCTestCase {
 	func testNewSearchWhenLastSearchingNotFinished() {
 		viewModel.searchingText = "dummy"
 		viewModel.searchingText = "dummy2"
-		mockGithubService.getServiceResponse(usecase: .success)
-		XCTAssertEqual(viewModel.listRepositories.count, 2)
+		XCTAssertEqual(mockGithubService.savedQuery, "dummy")
 	}
 	
 	func testSearchLimitRate() {
@@ -70,6 +69,7 @@ class RepositoryViewModelTests: XCTestCase {
 		viewModel.searchingText = "dummy"
 		viewModel.searchingText = "dummy2"
 		mockGithubService.getServiceResponse(usecase: .success)
+		XCTAssertEqual(mockGithubService.savedQuery, "dummy2")
 		mockGithubService.getServiceResponse(usecase: .successThreeItems)
 		XCTAssertEqual(viewModel.listRepositories.count, 3)
 	}
