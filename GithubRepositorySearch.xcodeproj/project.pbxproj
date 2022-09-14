@@ -86,49 +86,49 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		AE78B7D728CF5A6B0077BD28 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				AEBF943128CEB6EA00846E69 /* RepositoryViewController.swift */,
-				AE78B7D828CF5A960077BD28 /* RepositoryTableViewCell.swift */,
-				AE78B7F828D05DDE0077BD28 /* ViewModel */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		AE78B7EF28D0265B0077BD28 /* Model */ = {
+		AE239FBC28D16618001EAB3F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				AE78B7EB28D025A90077BD28 /* RepositoryModel.swift */,
-				AE78B7ED28D026120077BD28 /* SearchRepositoryResult.swift */,
+				AEBF943128CEB6EA00846E69 /* RepositoryViewController.swift */,
+				AE239FBD28D1662B001EAB3F /* ViewModel */,
 			);
-			name = Model;
+			path = View;
 			sourceTree = "<group>";
 		};
-		AE78B7F428D0285E0077BD28 /* Services */ = {
+		AE239FBD28D1662B001EAB3F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AE78B7F528D0286E0077BD28 /* GithubService */,
-				AE78B7E928D025300077BD28 /* RESTService.swift */,
+				AE78B7F628D029280077BD28 /* RepositoryViewModel.swift */,
 			);
-			name = Services;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		AE78B7F528D0286E0077BD28 /* GithubService */ = {
+		AE239FBF28D16659001EAB3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE78B7ED28D026120077BD28 /* SearchRepositoryResult.swift */,
+				AE78B7D828CF5A960077BD28 /* RepositoryTableViewCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE239FC028D16674001EAB3F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AE239FC128D1667F001EAB3F /* GithubService */,
+				AE78B7E928D025300077BD28 /* RESTService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AE239FC128D1667F001EAB3F /* GithubService */ = {
 			isa = PBXGroup;
 			children = (
 				AE78B7F028D026940077BD28 /* GithubFacade.swift */,
 				AE78B7F228D026C20077BD28 /* GithubService.swift */,
 			);
-			name = GithubService;
-			sourceTree = "<group>";
-		};
-		AE78B7F828D05DDE0077BD28 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AE78B7F628D029280077BD28 /* RepositoryViewModel.swift */,
-			);
-			name = ViewModel;
+			path = GithubService;
 			sourceTree = "<group>";
 		};
 		AEBF942128CEB6EA00846E69 = {
@@ -152,9 +152,9 @@
 		AEBF942C28CEB6EA00846E69 /* GithubRepositorySearch */ = {
 			isa = PBXGroup;
 			children = (
-				AE78B7D728CF5A6B0077BD28 /* View */,
-				AE78B7EF28D0265B0077BD28 /* Model */,
-				AE78B7F428D0285E0077BD28 /* Services */,
+				AE239FC028D16674001EAB3F /* Services */,
+				AE239FBF28D16659001EAB3F /* Model */,
+				AE239FBC28D16618001EAB3F /* View */,
 				AEBF942D28CEB6EA00846E69 /* AppDelegate.swift */,
 				AEBF942F28CEB6EA00846E69 /* SceneDelegate.swift */,
 				AEBF943328CEB6EA00846E69 /* Main.storyboard */,
