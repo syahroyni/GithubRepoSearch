@@ -89,7 +89,7 @@
 		AE239FBC28D16618001EAB3F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE78B7EB28D025A90077BD28 /* RepositoryModel.swift */,
+				AE78B7D828CF5A960077BD28 /* RepositoryTableViewCell.swift */,
 				AEBF943128CEB6EA00846E69 /* RepositoryViewController.swift */,
 				AE239FBD28D1662B001EAB3F /* ViewModel */,
 			);
@@ -107,8 +107,8 @@
 		AE239FBF28D16659001EAB3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AE78B7EB28D025A90077BD28 /* RepositoryModel.swift */,
 				AE78B7ED28D026120077BD28 /* SearchRepositoryResult.swift */,
-				AE78B7D828CF5A960077BD28 /* RepositoryTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
