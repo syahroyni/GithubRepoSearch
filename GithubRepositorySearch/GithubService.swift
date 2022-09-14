@@ -53,7 +53,6 @@ class GithubService: GithubFacade {
 						completion(.failure(limitRateError))
 						return
 					}
-					
 				}
 				
 				let decoder = JSONDecoder()
