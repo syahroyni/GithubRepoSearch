@@ -21,10 +21,24 @@ class RepositoryViewModel: NSObject {
 	private let githubFacade: GithubFacade
 	private var searchedText: String = ""
 	private var isSearching: Bool = false
+	private var page: Int = 1
+	private var totalCount: Int = 0
+	private var hasNextPage: Bool = false
+	private var isLoadNextPage: Bool = false
 	
 	init(githubFacade: GithubFacade = GithubService()) {
 		self.githubFacade = githubFacade
 		super.init()
+	}
+	
+	func loadNextPage() {
+		if !hasNextPage {
+			return
+		}
+		
+		page += 1
+		self.isLoadNextPage = true
+		self.searchRepository()
 	}
 	
 	private func searchRepository() {
@@ -41,7 +55,7 @@ class RepositoryViewModel: NSObject {
 		}
 		
 		isSearching = true
-		githubFacade.searchRepository(queryString: searchedText) { [weak self] result in
+		githubFacade.searchRepository(queryString: searchedText, page: page) { [weak self] result in
 			
 			guard let self = self else {
 				return
@@ -49,7 +63,19 @@ class RepositoryViewModel: NSObject {
 			
 			switch(result) {
 			case .success(let searchResult):
-				self.listRepositories = searchResult.items
+				if self.isLoadNextPage {
+					self.listRepositories.append(contentsOf: searchResult.items)
+					self.isLoadNextPage = false
+					self.needToReloadData?()
+				} else {
+					
+					self.listRepositories = searchResult.items
+					self.totalCount = searchResult.totalCount
+					self.page = 1
+					if self.totalCount > self.listRepositories.count {
+						self.hasNextPage = true
+					}
+				}
 				
 			case.failure(let error):
 				if let error = error as? ResponseError {

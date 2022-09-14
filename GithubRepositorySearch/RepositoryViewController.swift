@@ -24,6 +24,7 @@ class RepositoryViewController: UIViewController {
 		// Do any additional setup after loading the view.
 		
 		repositoriesTableView.dataSource = self
+		repositoriesTableView.delegate = self
 		observeViewModel()
 		searchTextField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
 	}
@@ -102,6 +103,13 @@ extension RepositoryViewController: UITableViewDataSource {
 		}
 		
 		return UITableViewCell()
+	}
+}
+extension RepositoryViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		if indexPath.row >= viewModel.listRepositories.count - 2 {
+			viewModel.loadNextPage()
+		}
 	}
 }
 extension UITableView {

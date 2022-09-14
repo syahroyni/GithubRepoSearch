@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GithubFacade {
-	func searchRepository(queryString: String, completion: @escaping (Result<SearchRepositoryResult, Error>) -> Void)
+	func searchRepository(queryString: String, page: Int, completion: @escaping (Result<SearchRepositoryResult, Error>) -> Void)
 }
