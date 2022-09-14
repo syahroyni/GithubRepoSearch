@@ -22,12 +22,13 @@ class GithubService: GithubFacade {
 		self.restService = restService
 	}
 	
-	func searchRepository(queryString: String, completion: @escaping (Result<SearchRepositoryResult, Error>) -> Void) {
+	func searchRepository(queryString: String, page: Int, completion: @escaping (Result<SearchRepositoryResult, Error>) -> Void) {
 		
 		let urlString = "\(self.baseURL)search/repositories"
 		var urlComponents = URLComponents(string: urlString)
 		let queryItem = URLQueryItem(name: "q", value: queryString)
-		urlComponents?.queryItems = [queryItem]
+		let pageItem = URLQueryItem(name: "page", value: "\(page)")
+		urlComponents?.queryItems = [queryItem, pageItem]
 		
 		guard let url = urlComponents?.url else {
 			return
