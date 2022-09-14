@@ -19,9 +19,13 @@ enum ServiceUseCase {
 class MockGithubService: GithubFacade {
 	
 	var savedCompletion: ((Result<SearchRepositoryResult, Error>) -> Void)?
+	var savedQuery: String?
+	var savedPage: Int = 0
 	
-	func searchRepository(queryString: String, completion: @escaping (Result<SearchRepositoryResult, Error>) -> Void) {
+	func searchRepository(queryString: String, page: Int, completion: @escaping (Result<SearchRepositoryResult, Error>) -> Void) {
 		savedCompletion = completion
+		savedQuery = queryString
+		savedPage = page
 	}
 	
 	func getServiceResponse(usecase: ServiceUseCase) {
